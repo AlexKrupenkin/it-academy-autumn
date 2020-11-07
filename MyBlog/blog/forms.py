@@ -6,8 +6,8 @@ from django.contrib.auth.models import  User
 
 
 class EmailMaterialForm(forms.Form):
-    name = forms.CharField(max_length=20)
-    my_email = forms.EmailField()
+    #name = forms.CharField(max_length=20)
+    #my_email = forms.EmailField()
     to_email = forms.EmailField()
     comment = forms.CharField(required=False,
                               widget=forms.Textarea)
@@ -22,6 +22,8 @@ class MaterialForm(forms.ModelForm):
 class LoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
+
+
 
 class CommentForm(forms.ModelForm):
     class Meta:
