@@ -68,12 +68,12 @@ def _prepare_mail(cd, request, material):
 
     body = BODY_TEMPLATE.format(title=material.title,
                                 uri=material_uri,
-                                name=cd['name'],
+                                name=models.User.last_name,
                                 comment=cd['comment'])
 
     subject = "{name}({email}) recommends you {title}".format(
-        name=cd['name'],
-        email=cd['my_email'],
+        name=models.User.first_name,
+        email=models.User.email,
         title=material.title,
     )
 
