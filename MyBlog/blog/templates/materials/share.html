@@ -5,11 +5,13 @@
 {% block content %}
     <a href="{% url "blog:all_materials" %}"> <h2> <i> Все статьи </i></h2> </a>
     {% if sent %}
-        <p>Статья  <u>{{ material.title }}</u>  отправлена  на ваш E-mail {{form.to_email}}</p>
+        <p>Статья  <u>{{ material.title }}</u>  отправлена  на  E-mail {{form.to_email}}</p>
     {% else %}
-        <h2>Статья <u>{{ material.title }}</u> готова к отправке, введите ваш E-mail:</h2>
-
+        <h2>Статья <u>{{ material.title }}</u> готова к отправке, введите E-mail полуателя:</h2>
+        <p>Ваше имя {{ user.first_name }}</p>
+        <p>Ваше имя {{ user.email }}</p>
         <form action="." method="post">
+
             {{ form.as_p }}
             {% csrf_token %}
             <input type="submit" value="ОТПРАВИТЬ">
